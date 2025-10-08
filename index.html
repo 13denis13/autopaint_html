@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>AutoPaint Novosibirsk — покраска автомобилей</title>
+
+    <meta name="description" content="AutoPaint Novosibirsk — профессиональная покраска автомобилей. Качество, опыт, гарантия." />
+    <meta name="keywords" content="покраска авто, Новосибирск, автомастерская, AutoPaint" />
+    <meta property="og:title" content="AutoPaint Novosibirsk" />
+    <meta property="og:description" content="Профессиональная покраска автомобилей в Новосибирске" />
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Подключение Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+    <!-- Навигация по соцсетям -->
+    <nav class="social-nav" aria-label="Социальные сети">
+        <ul>
+            <li><a href="https://vk.com/autopaint13" target="_blank" aria-label="Перейти в ВКонтакте">
+                <img src="images/icons8-vk-20.png" alt="ВКонтакте" />
+            </a></li>
+            <li>
+                <a href="https://t.me/autopaint_nsk" target="_blank" aria-label="Написать в Telegram">
+                    <img src="images/icons8-телеграм-20.png" alt="Telegram" />
+                </a>
+            </li>
+            <li><a href="https://www.instagram.com/13veles13" target="_blank" aria-label="Перейти в Instagram">
+                <img src="images/icons8-instagram-20.png" alt="Instagram" />
+            </a></li>
+        </ul>
+    </nav>
+
+    <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+            <li><a href="#home" class="active" aria-current="page">Главная</a></li>
+            <li><a href="#contact">Социальные сети</a></li>
+        </ul>
+    </nav>
+
+    <!-- Секция "Главная" -->
+    <section class="content show" id="home" role="main">
+        <h1>Добро пожаловать!</h1>
+        <h5>Приветствуем Вас на страничке AutoPaint Novosibirsk!</h5>
+        <p>Цвет, который вдохновляет. Качество, которому доверяют,
+            опытные мастера и внимание к каждой детали. Вернём вашему авто первозданный блеск и защитим на годы вперёд.
+        </p>
+    </section>
+
+    <!-- Секция "Контакты" -->
+    <section class="content hide" id="contact" hidden>
+        <h1>Социальные сети</h1>
+        <h5>Запись через Telegram или VK.</h5>
+        <p>Примеры работ и связь с автомастерской по ссылкам выше.<br />
+            Ждем Ваших обращений!</p>
+    </section>
+
+    <!-- Слайдер фона -->
+    <div class="swiper" id="maximage">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/backgrounds/1759674914.jpg" alt="Фон AutoPaint 1" loading="lazy" />
+                <img class="gradient" src="images/backgrounds/gradient.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="images/backgrounds/1759676344.jpg" alt="Фон AutoPaint 3" loading="lazy" />
+                <img class="responsive-img" src="images/backgrounds/gradient.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="images/backgrounds/1759673787.jpg" alt="Фон AutoPaint 4" loading="lazy" />
+                <img class="gradient" src="images/backgrounds/gradient.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение jQuery и Swiper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        $(function(){
+            // Инициализация Swiper
+            const swiper = new Swiper('#maximage', {
+                loop: true,
+                effect: 'fade',
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                speed: 1000,
+                preloadImages: false,
+                lazy: true,
+            });
+
+            // Переключение секций
+            $('.main-nav a').on('click', function(e) {
+                e.preventDefault();
+                const target = $(this).attr('href').substring(1);
+
+                $('.content').hide().attr('hidden', true);
+                $('#' + target).show().removeAttr('hidden');
+
+                $('.main-nav a').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
